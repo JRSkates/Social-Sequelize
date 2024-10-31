@@ -8,16 +8,22 @@ describe('Social Sequelzie Test', () => {
     beforeAll(async () => {
         // the 'sync' method will create tables based on the model class
         // by setting 'force:true' the tables are recreated each time the test suite is run
-        await sequelize.sync({ force: true });
+        await db.sync({ force: true });
     })
 
     // Write your tests here
     
-    test("replace with your test", function() {
-        expect(true).toBe(true);
+    test("Constructs User Model", async () => {
+        const user = new User({
+            username: "jsj179",
+            email: "jsj179@gmail.com"
+        });
+        expect(user.username).toBe('jsj179');
     })
 
-
+    it("Constructs Post Model", async () => {
+        
+    })
 
 
 })
