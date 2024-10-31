@@ -21,9 +21,37 @@ describe('Social Sequelzie Test', () => {
         expect(user.username).toBe('jsj179');
     })
 
-    it("Constructs Post Model", async () => {
-        
+    it("Constructs Profile Model", async () => {
+        const profile = new Profile({
+            bio: "I'm a software engineer",
+            profilePicture: "profilePicture",
+            birthday: "25/07/1996"
+        });
+        expect(profile.bio).toBe("I'm a software engineer");
     })
 
+    it("Constructs Post Model", async () => {
+        const post = new Post({
+            title: "First Post",
+            body: "This is my first post",
+            createdAt: "2022-01-01 12:00:00"
+        });
+        expect(post.title).toBe('First Post');
+    })
 
+    it("Constructs Comment Model", async () => {
+        const post = new Comment({
+            body: "This is my first comment",
+            createdAt: "2022-01-01 12:00:00"
+        });
+        expect(post.body).toBe('This is my first comment');
+    })
+
+    it("Constructs Like Model", async () => {
+        const like = new Like({
+            reactionType: "like",
+            createdAt: "2022-01-01 12:00:00"
+        });
+        expect(like.reactionType).toBe('like');
+    })
 })
