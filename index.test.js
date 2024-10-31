@@ -118,5 +118,9 @@ describe('Social Sequelzie Test', () => {
         await user.addLike(like);
         const userLikes = await user.getLikes()
         expect(userLikes.length).toBe(1);
+
+        await like.addUser(user);
+        const likeUsers = await like.getUsers()
+        expect(likeUsers.length).toBe(1);
     })
 })
