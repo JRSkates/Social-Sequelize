@@ -83,7 +83,7 @@ describe('Social Sequelzie Test', () => {
             createdAt: "2022-01-01 12:00:00"
         });
 
-        await user.addPost(post);
+        await user.setPosts(post);
         const userPosts = await user.getPosts()
         expect(userPosts.length).toBe(1);
     })
@@ -100,7 +100,7 @@ describe('Social Sequelzie Test', () => {
             createdAt: "2022-01-01 12:00:00"
         })
 
-        await post.addComment(comment);
+        await post.setComments(comment);
         const postComments = await post.getComments()
         expect(postComments.length).toBe(1);
     })
@@ -115,11 +115,11 @@ describe('Social Sequelzie Test', () => {
             createdAt: "2022-01-01 12:00:00"
         });
 
-        await user.addLike(like);
+        await user.setLikes(like);
         const userLikes = await user.getLikes()
         expect(userLikes.length).toBe(1);
 
-        await like.addUser(user);
+        await like.setUsers(user);
         const likeUsers = await like.getUsers()
         expect(likeUsers.length).toBe(1);
     })
